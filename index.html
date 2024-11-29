@@ -4,162 +4,333 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciberseguridad</title>
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
     <style>
+        /* Estilo global */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lexend', sans-serif;
+            font-size: 18px;
             background-color: #f4f4f9;
             color: #333;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        header {
+
+        /* Contenedor principal centrado */
+        .content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        /* Navbar flotante */
+        nav {
             background-color: #007acc;
             color: white;
-            text-align: center;
-            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header con video de fondo */
+        header {
+            margin-top: 60px; /* Espacio para que no se sobreponga el nav */
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+        }
+
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5; /* 50% opacidad en el video */
+            z-index: -1; /* Asegura que el video quede detrás del texto */
+        }
+
         h1 {
-            margin: 0;
-            font-size: 36px;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: textBlur 3s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para el texto */
+            padding: 20px;
+            border-radius: 8px;
         }
+
+        /* Efecto difuminado en el texto del header */
+        @keyframes textBlur {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.7);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+            }
+        }
+
         h2 {
-            color: #ff4500;
+            font-size: 2rem;
+            color: #007acc;
             margin-top: 30px;
         }
+
         h3 {
-            color: #007acc;
+            font-size: 1.6rem;
+            color: #ff4500;
+            margin-top: 20px;
         }
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
         .highlight {
             background-color: #e0f7fa;
-            padding: 10px;
+            padding: 15px;
             border-radius: 5px;
-        }
-        section {
-            margin: 20px;
-        }
-        ul, ol {
-            padding-left: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+            font-size: 1.2rem;
             margin: 20px 0;
         }
-        table, th, td {
-            border: 1px solid #ccc;
+
+        ul, ol {
+            margin-left: 20px;
+            font-size: 1.2rem;
         }
-        th {
-            background-color: #007acc;
-            color: white;
+
+        ul li, ol li {
+            margin-bottom: 10px;
         }
-        td {
-            text-align: center;
-            padding: 10px;
-        }
+
         a {
             color: #007acc;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
-        img {
-            width: 100%;
-            max-width: 300px;
-            margin: 10px;
-            border-radius: 5px;
+
+        /* Estilo para las imágenes */
+        .images-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
-        footer {
+
+        .images-section img {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            margin: 10px;
+        }
+
+        /* Estilo de tabla */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th {
             background-color: #007acc;
             color: white;
-            padding: 15px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        td, th {
+            font-size: 1.2rem;
+        }
+
+        /* Estilo del pie de página */
+        footer {
+            background-color: #f4f4f9;
+            padding: 20px;
             text-align: center;
         }
+
         footer a {
-            color: white;
+            margin: 0 10px;
         }
-        footer a:hover {
-            text-decoration: underline;
+
+        /* Media queries para hacer la página responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .images-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .images-section img {
+                width: 150px;
+                height: 150px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2, h3 {
+                font-size: 1.5rem;
+            }
+
+            p, ul li, ol li {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#top">Inicio</a></li>
+            <li><a href="#¿Qué-es-la-ciberseguridad?">¿Qué es la ciberseguridad?</a></li>
+            <li><a href="#Consejos-Básicos">Consejos básicos</a></li>
+            <li><a href="#Comparativa">Comparativa</a></li>
+        </ul>
+    </nav>
+
     <header>
+        <video autoplay loop muted>
+            <source src="https://videos.pexels.com/video-files/6963744/6963744-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Tu navegador no soporta el video HTML5.
+        </video>
         <h1>Ciberseguridad: Protege tu Información</h1>
     </header>
 
-    <section>
-        <h2>¿Qué es la ciberseguridad?</h2>
-        <p class="highlight">La ciberseguridad se refiere a la práctica de proteger sistemas, redes y programas de ataques digitales. Estos ataques suelen tener como objetivo acceder, cambiar o destruir información sensible.</p>
-        <p>Es crucial en el mundo digital actual, donde la información es uno de los activos más valiosos. Además, las amenazas cibernéticas evolucionan rápidamente, por lo que mantenerse informado y protegido es fundamental.</p>
-        <p>Existen varios tipos de ciberamenazas, entre ellas:</p>
-        <ul>
-            <li><strong>Malware:</strong> Programas diseñados para dañar o robar información.</li>
-            <li><strong>Phishing:</strong> Técnicas de engaño para obtener datos confidenciales.</li>
-            <li><strong>Ransomware:</strong> Software malicioso que secuestra tus datos y pide un rescate.</li>
-        </ul>
-    </section>
+    <div class="content">
+        <section id="¿Qué-es-la-ciberseguridad?">
+            <h2>¿Qué es la ciberseguridad?</h2>
+            <p class="highlight">La ciberseguridad se refiere a la práctica de proteger sistemas, redes y programas de ataques digitales. Estos ataques suelen tener como objetivo acceder, cambiar o destruir información sensible.</p>
+            <p>Es crucial en el mundo digital actual, donde la información es uno de los activos más valiosos.</p>
+        </section>
 
-    <section>
-        <h2>Consejos Básicos de Ciberseguridad</h2>
-        <ul>
-            <li>Usa contraseñas fuertes y cámbialas regularmente.</li>
-            <li>Actualiza tus programas y sistemas operativos con frecuencia.</li>
-            <li>No abras enlaces o archivos de fuentes desconocidas.</li>
-            <li>Haz copias de seguridad periódicas de tus datos importantes.</li>
-            <li>Utiliza conexiones seguras (HTTPS) al navegar por internet.</li>
-        </ul>
+        <section id="Consejos-Básicos">
+            <h2>Consejos Básicos de Ciberseguridad</h2>
+            <ul>
+                <li>Usa contraseñas fuertes y cámbialas regularmente.</li>
+                <li>Actualiza tus programas y sistemas operativos con frecuencia.</li>
+                <li>No abras enlaces o archivos de fuentes desconocidas.</li>
+            </ul>
+            <h3>Herramientas recomendadas:</h3>
+            <ol>
+                <li>Antivirus confiables</li>
+                <li>Gestores de contraseñas</li>
+                <li>Software de autenticación multifactor</li>
+            </ol>
+        </section>
 
-        <h3>Herramientas recomendadas:</h3>
-        <ol>
-            <li><strong>Antivirus confiables:</strong> Protegen contra el malware y otros tipos de amenazas.</li>
-            <li><strong>Gestores de contraseñas:</strong> Ayudan a mantener tus contraseñas seguras y fáciles de acceder.</li>
-            <li><strong>Software de autenticación multifactor:</strong> Añade una capa extra de seguridad al proceso de inicio de sesión.</li>
-        </ol>
-    </section>
+        <section class="images-section">
+            <h2>Imágenes Relacionadas</h2>
+            <div>
+                <img src="https://blog.hackmetrix.com/wp-content/uploads/2024/05/Como-elegir-un-buen-antivirus-1-1160x680.png" alt="Seguridad en línea" />
+                <img src="https://i.blogs.es/3478ef/password-g37281e378_1280/450_1000.webp" alt="Protección de datos" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOKP0L7oxJi-Eb73xkVNYAJ-jiHWh2hwA72g&s" alt="Firewall" />
+            </div>
+        </section>
 
-    <section>
-        <h2>Imágenes Relacionadas</h2>
-        <div>
-            <img src="https://via.placeholder.com/300x200" alt="Seguridad en línea" />
-            <img src="https://via.placeholder.com/300x200" alt="Protección de datos" />
-            <img src="https://via.placeholder.com/300x200" alt="Firewall" />
-        </div>
-    </section>
+        <section id="Comparativa">
+            <h2>Comparativa de Seguridad</h2>
+            <table>
+                <tr>
+                    <th>Método</th>
+                    <th>Efectividad</th>
+                    <th>Costo</th>
+                </tr>
+                <tr>
+                    <td>Antivirus</td>
+                    <td>Alta</td>
+                    <td>Medio</td>
+                </tr>
+                <tr>
+                    <td>Firewall</td>
+                    <td>Alta</td>
+                    <td>Bajo</td>
+                </tr>
+                <tr>
+                    <td>Gestor de contraseñas</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                </tr>
+            </table>
+        </section>
 
-    <section>
-        <h2>Comparativa de Seguridad</h2>
-        <table>
-            <tr>
-                <th>Método</th>
-                <th>Efectividad</th>
-                <th>Costo</th>
-            </tr>
-            <tr>
-                <td>Antivirus</td>
-                <td>Alta</td>
-                <td>Medio</td>
-            </tr>
-            <tr>
-                <td>Firewall</td>
-                <td>Alta</td>
-                <td>Bajo</td>
-            </tr>
-            <tr>
-                <td>Gestor de contraseñas</td>
-                <td>Media</td>
-                <td>Medio</td>
-            </tr>
-        </table>
-    </section>
-
-    <footer>
-        <h2>Enlaces Internos</h2>
-        <p>
-            <a href="#top">Volver al inicio</a> | 
-            <a href="#¿Qué-es-la-ciberseguridad?">¿Qué es la ciberseguridad?</a> | 
-            <a href="#Consejos-Básicos">Consejos básicos</a>
-        </p>
-    </footer>
+        <footer>
+            <h2>Enlaces Internos</h2>
+            <p>
+                <a href="#top">Volver al inicio</a> | 
+                <a href="#¿Qué-es-la-ciberseguridad?">¿Qué es la ciberseguridad?</a> | 
+                <a href="#Consejos-Básicos">Consejos básicos</a>
+            </p>
+        </footer>
+    </div>
 </body>
 </html>
